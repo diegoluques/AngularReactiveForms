@@ -10,8 +10,15 @@
                         <div class="form-group col-md-4">
                             <label for="nome">Nome Completo</label>
                             <input type="text" id="nome" class="form-control" placeholder="Nome (requerido)"
-                                formControlName="nome">
+                                formControlName="nome" [ngClass]="{'is-invalid': cadastroForm.get('nome').errors && 
+                                (cadastroForm.get('nome').dirty || cadastroForm.get('nome').touched)}">
+
+                            <span class="text-danger" *ngIf="cadastroForm.get('nome').errors && 
+                                (cadastroForm.get('nome').dirty || cadastroForm.get('nome').touched)">
+                                <p>Preencha o campo Nome!</p>
+                            </span>
                         </div>
+
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-4">
@@ -25,6 +32,15 @@
                             <label for="nome">E-mail</label>
                             <input type="text" id="email" class="form-control" placeholder="E-mail (requerido)"
                                 formControlName="email">
+
+                            <span class="text-danger" *ngIf="cadastroForm.get('email')?.errors?.required && 
+                                (cadastroForm.get('email').dirty || cadastroForm.get('email').touched)">
+                                <p>Preencha o campo E-mail!</p>
+                            </span>
+                            <span class="text-danger" *ngIf="cadastroForm.get('email')?.errors?.email && 
+                            (cadastroForm.get('email').dirty || cadastroForm.get('email').touched)">
+                                <p>E-mail inválido!</p>
+                            </span>
                         </div>
                     </div>
                     <div class="form-row">
@@ -44,9 +60,23 @@
 
 
                     <hr>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-success">Registrar</button>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <button type="submit" id="registrar" [disabled]="!cadastroForm.valid"
+                                class="btn btn-success">Registrar</button>
+                        </div>
                     </div>
+                    <hr>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <p>Formulário está valido: {{cadastroForm.valid}}</p>
+                            <p>Formulário Tocado: {{cadastroForm.touched}}</p>
+                            <p>Formulário Sujo: {{cadastroForm.dirty}}</p>
+                            <br>
+                            <p>Formulário: {{formResult}}</p>
+                        </div>
+                    </div>
+
                 </div>
             </form>
         </div>
