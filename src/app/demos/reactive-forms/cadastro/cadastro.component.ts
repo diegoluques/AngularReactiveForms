@@ -1,3 +1,4 @@
+import { Usuario } from './models/usuario';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { __decorate } from "tslib";
@@ -9,6 +10,7 @@ import { __decorate } from "tslib";
 export class CadastroComponent implements OnInit {
 
   cadastroForm: FormGroup;
+  usuario: Usuario;
 
   constructor(private fb: FormBuilder) { }
 
@@ -25,8 +27,10 @@ export class CadastroComponent implements OnInit {
   }
 
   adicionarUsuario() {
-    let x = this.cadastroForm.value
-    console.log('Resultado: ', x);
+    //Objeto tipado
+    this.usuario = Object.assign({}, this.usuario, this.cadastroForm.value)
+
+    console.log('Resultado: ', this.usuario);
 
   }
 
