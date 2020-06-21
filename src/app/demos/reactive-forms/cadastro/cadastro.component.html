@@ -15,7 +15,7 @@
 
                             <span class="text-danger" *ngIf="cadastroForm.get('nome').errors && 
                                 (cadastroForm.get('nome').dirty || cadastroForm.get('nome').touched)">
-                                <p>Preencha o campo Nome!</p>
+                                <p>Preencha o campo Nome</p>
                             </span>
                         </div>
 
@@ -24,7 +24,16 @@
                         <div class="form-group col-md-4">
                             <label for="nome">CPF</label>
                             <input type="text" id="cpf" class="form-control" placeholder="CPF (requerido)"
-                                formControlName="cpf">
+                                formControlName="cpf" cpf [textMask]="{mask: masks.cpf.textMask}">
+
+                            <span class="text-danger" *ngIf="cadastroForm.get('cpf')?.errors?.required && 
+                                (cadastroForm.get('cpf').dirty || cadastroForm.get('cpf').touched)">
+                                <p>Preencha o campo CPF</p>
+                            </span>
+                            <span class="text-danger" *ngIf="cadastroForm.get('cpf')?.errors?.cpf && 
+                            (cadastroForm.get('cpf').dirty || cadastroForm.get('cpf').touched)">
+                                <p>CPF inválido</p>
+                            </span>
                         </div>
                     </div>
                     <div class="form-row">
@@ -35,11 +44,11 @@
 
                             <span class="text-danger" *ngIf="cadastroForm.get('email')?.errors?.required && 
                                 (cadastroForm.get('email').dirty || cadastroForm.get('email').touched)">
-                                <p>Preencha o campo E-mail!</p>
+                                <p>Preencha o campo E-mail</p>
                             </span>
                             <span class="text-danger" *ngIf="cadastroForm.get('email')?.errors?.email && 
                             (cadastroForm.get('email').dirty || cadastroForm.get('email').touched)">
-                                <p>E-mail inválido!</p>
+                                <p>E-mail inválido</p>
                             </span>
                         </div>
                     </div>
@@ -48,6 +57,15 @@
                             <label for="nome">Senha</label>
                             <input type="password" id="senha" class="form-control" placeholder="Senha (requerido)"
                                 formControlName="senha">
+
+                            <span class="text-danger" *ngIf="cadastroForm.get('senha')?.errors?.required && 
+                                (cadastroForm.get('senha').dirty || cadastroForm.get('senha').touched)">
+                                <p>Preencha o campo Senha</p>
+                            </span>
+                            <span class="text-danger" *ngIf="cadastroForm.get('senha')?.errors?.rangeLength && 
+                            (cadastroForm.get('senha').dirty || cadastroForm.get('senha').touched)">
+                                <p>Senha deve ter entre 6 e 15 caracteres</p>
+                            </span>
                         </div>
                     </div>
                     <div class="form-row">
@@ -55,6 +73,16 @@
                             <label for="nome">Confirme a Senha</label>
                             <input type="password" id="confirmeSenha" class="form-control"
                                 placeholder="Confirme a Senha (requerido)" formControlName="confirmeSenha">
+
+                            <span class="text-danger"
+                                *ngIf="cadastroForm.get('confirmeSenha')?.errors?.required && 
+                                (cadastroForm.get('confirmeSenha').dirty || cadastroForm.get('confirmeSenha').touched)">
+                                <p>Preencha o campo Confirme a Senha</p>
+                            </span>
+                            <span class="text-danger" *ngIf="cadastroForm.get('confirmeSenha')?.errors?.equalTo && 
+                            (cadastroForm.get('confirmeSenha').dirty || cadastroForm.get('confirmeSenha').touched)">
+                                <p>Confirme senha não confere com a senha informada acima</p>
+                            </span>
                         </div>
                     </div>
 
