@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "AngularReactiveForms"
+    }
+  },
+  "defaultProject": "AngularReactiveForms",
+  "cli": {
+    "analytics": false
+  }
 }
