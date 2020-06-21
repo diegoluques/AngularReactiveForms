@@ -1,0 +1,59 @@
+<div class="container mt-80">
+    <div class="row">
+        <div class="col-12">
+            <h4>Demo cadastro</h4>
+            <hr>
+            <form novalidate (ngSubmit)="adicionarUsuario()" [formGroup]="cadastroForm">
+                <div class="form-horizontal">
+
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="nome">Nome Completo</label>
+                            <input type="text" id="nome" class="form-control" placeholder="Nome (requerido)"
+                                formControlName="nome">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="nome">CPF</label>
+                            <input type="text" id="cpf" class="form-control" placeholder="CPF (requerido)"
+                                formControlName="cpf">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="nome">E-mail</label>
+                            <input type="text" id="email" class="form-control" placeholder="E-mail (requerido)"
+                                formControlName="email">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="nome">Senha</label>
+                            <input type="password" id="senha" class="form-control" placeholder="Senha (requerido)"
+                                formControlName="senha">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="nome">Confirme a Senha</label>
+                            <input type="password" id="confirmeSenha" class="form-control"
+                                placeholder="Confirme a Senha (requerido)" formControlName="confirmeSenha">
+                        </div>
+                    </div>
+
+
+                    <hr>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success">Registrar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+</div>
